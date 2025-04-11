@@ -7,12 +7,13 @@ It consists of
 Printvalues are created when printing the source for a Value in the first pass. The second pass takes the Printvalue and produces a nicely indented soure string for the value.
 "
 Class {
-	#name : #Printvalue,
-	#superclass : #Value,
-	#category : #Values
+	#name : 'Printvalue',
+	#superclass : 'Value',
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printvalue >> description [
 	"<Text>"
 
@@ -22,7 +23,7 @@ Printvalue >> description [
 	^emitter stream contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printvalue >> emitterClass [
 	"<SourceEmitter class>"
 
@@ -31,12 +32,12 @@ Printvalue >> emitterClass [
 		ifFalse: [Blockemitter]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Printvalue >> isLine [
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Printvalue >> isSimple [
 	"does it have to be printed in brackets?
 	only literals are simple"
@@ -44,21 +45,21 @@ Printvalue >> isSimple [
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printvalue >> sourceFor: outerEmitter [
 	"<String>"
 
 	^self sourceWith: (outerEmitter emitterFor: self)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printvalue >> sourceWith: emitter [
 	"write yourself with the emitter"
 
 	^self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printvalue >> sourceWithPrinter: aPrinter [
 	"<String>"
 
@@ -68,7 +69,7 @@ Printvalue >> sourceWithPrinter: aPrinter [
 	^emitter stream contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printvalue >> textemitterClass [
 	"<SourceEmitter class>"
 

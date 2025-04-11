@@ -6,12 +6,14 @@ Tests for Values.
 Includes conformance tests for all leaf classes of Value.
 "
 Class {
-	#name : #AboutValuesTests,
-	#superclass : #Object,
-	#category : #'Values-Testing'
+	#name : 'AboutValuesTests',
+	#superclass : 'Object',
+	#category : 'Values-Testing',
+	#package : 'Values',
+	#tag : 'Testing'
 }
 
-{ #category : #'Package properties' }
+{ #category : 'Package properties' }
 AboutValuesTests >> storeVersion [
 	^'3.0.0.2'
 ]

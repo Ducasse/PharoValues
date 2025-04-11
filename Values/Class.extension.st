@@ -1,6 +1,6 @@
-Extension { #name : #Class }
+Extension { #name : 'Class' }
 
-{ #category : #'*Values-testing' }
+{ #category : '*Values-testing' }
 Class >> isInScope: aClass [
 	"<Boolean>
 	true if aClass is visible by the receiver - aClass can be used in the source without namespace qualifier.
@@ -10,7 +10,7 @@ Class >> isInScope: aClass [
 	^true
 ]
 
-{ #category : #'*Values-accessing' }
+{ #category : '*Values-accessing' }
 Class >> nameRelativeTo: targetClass [
 	"<String>"
 	"self nameRelativeTo: Object"

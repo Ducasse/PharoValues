@@ -1,6 +1,6 @@
-Extension { #name : #Point }
+Extension { #name : 'Point' }
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Point >> printValueWith: printer [
 	| string |
 	string := (self x asSourceFor: printer target) , ' @ ' , (self y asSourceFor: printer target).

@@ -5,20 +5,21 @@ Instance Variables:
 	string	<String>	the representation as a string
 "
 Class {
-	#name : #LiteralPrintvalue,
-	#superclass : #Printvalue,
+	#name : 'LiteralPrintvalue',
+	#superclass : 'Printvalue',
 	#instVars : [
 		'string'
 	],
-	#category : #Values
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #specification }
+{ #category : 'specification' }
 LiteralPrintvalue class >> localSpecification [
 	<constant: #string class: #(#String)>
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 LiteralPrintvalue class >> string: stringString [
 	| inst |
 	inst := self new.
@@ -26,23 +27,23 @@ LiteralPrintvalue class >> string: stringString [
 	^inst
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 LiteralPrintvalue >> initializeString: stringString [
 	string := stringString.
 	self beImmutable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 LiteralPrintvalue >> isLine [
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 LiteralPrintvalue >> isSimple [
 	^(self string first = $() not
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 LiteralPrintvalue >> printValueWith: printer [
 	| args |
 	args := OrderedCollection new.
@@ -50,12 +51,12 @@ LiteralPrintvalue >> printValueWith: printer [
 	^printer printvalue: self arguments: args
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 LiteralPrintvalue >> sourceWith: emitter [
 	emitter emitValue: self string
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 LiteralPrintvalue >> string [
 	"<String>"
 

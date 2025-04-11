@@ -1,6 +1,6 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Object >> asDescription [
 	"<Text>
 	produces a text equivalent to the soure with bold leaf values"
@@ -8,7 +8,7 @@ Object >> asDescription [
 	^self asDescriptionFor: self class
 ]
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Object >> asDescriptionFor: targetClass [
 	"<Text>
 	produces a text equivalent to the source"
@@ -19,7 +19,7 @@ Object >> asDescriptionFor: targetClass [
 	^printvalue description
 ]
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Object >> asSource [
 	"<String>
 	produces a string which can be evaluated in the context of the receiver class to an object equivalent to the receiver"
@@ -27,7 +27,7 @@ Object >> asSource [
 	^self asSourceFor: self class
 ]
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Object >> asSourceFor: targetClass [
 	"<String>
 	produces a string which can be evaluated in the context of targetClass to an object equivalent to the receiver"
@@ -38,31 +38,31 @@ Object >> asSourceFor: targetClass [
 	^printvalue sourceWithPrinter: printer
 ]
 
-{ #category : #'*Values-actions' }
+{ #category : '*Values-actions' }
 Object >> beImmutable [
 	self beReadOnlyObject.
 	^self
 ]
 
-{ #category : #'*Values-actions' }
+{ #category : '*Values-actions' }
 Object >> beMutable [
 	self beWritableObject.
 	^self
 ]
 
-{ #category : #'*Values-comparing' }
+{ #category : '*Values-comparing' }
 Object >> isEqualValue: anObject [
 	^self = anObject
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 Object class >> nameOrNilFor: aValue [
 	"<Symbol | nil>"
 
 	^self namesByValues at: aValue ifAbsent: [nil]
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 Object class >> namedValueNames [
 	"<Array of: Symbol>
 	names to print for special known values"
@@ -70,14 +70,14 @@ Object class >> namedValueNames [
 	^#()
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 Object class >> namesByValues [
 	"<Dictionary key: Value value: Symbol>"
 
 	^Value namedValuesAt: self ifAbsentPut: [self newNamesByValues]
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 Object class >> newNamesByValues [
 	"<Dictionary key: Value value: Symbol>"
 
@@ -87,7 +87,7 @@ Object class >> newNamesByValues [
 	^dict
 ]
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Object >> printValueWith: printer [
 	^LiteralPrintvalue string: self storeString
 ]

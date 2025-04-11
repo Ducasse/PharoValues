@@ -2,15 +2,16 @@
 ArrayPrintvalue is a special Printvalue for sequentiable collections of Values
 "
 Class {
-	#name : #ArrayPrintvalue,
-	#superclass : #Printvalue,
+	#name : 'ArrayPrintvalue',
+	#superclass : 'Printvalue',
 	#instVars : [
 		'arguments'
 	],
-	#category : #Values
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ArrayPrintvalue class >> arguments: argumentsArray [
 	| inst |
 	inst := self new.
@@ -18,19 +19,19 @@ ArrayPrintvalue class >> arguments: argumentsArray [
 	^inst
 ]
 
-{ #category : #specification }
+{ #category : 'specification' }
 ArrayPrintvalue class >> localSpecification [
 	<sequence: #arguments>
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ArrayPrintvalue >> arguments [
 	"<Array>"
 
 	^arguments ifNil: [#()]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ArrayPrintvalue >> initializeArguments: argumentsArray [
 	(argumentsArray notNil and: [
 	argumentsArray notEmpty]) ifTrue: [
@@ -38,14 +39,14 @@ ArrayPrintvalue >> initializeArguments: argumentsArray [
 	self beImmutable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ArrayPrintvalue >> isLine [
 	^self arguments size = 1 or: [
 	self arguments size < 5 and: [
 	self arguments allSatisfy: [:arg | arg isSimple]]]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ArrayPrintvalue >> printValueWith: printer [
 	| args |
 	args := OrderedCollection new.
@@ -53,7 +54,7 @@ ArrayPrintvalue >> printValueWith: printer [
 	^printer printvalue: self arguments: args
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ArrayPrintvalue >> sourceWith: emitter [
 	emitter emitArraySourceFor: self arguments
 ]

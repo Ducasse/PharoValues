@@ -11,12 +11,13 @@ Defines the root class Value and provides
 Specifies the responsibilities of subclasses to define the #localSpecification
 "
 Class {
-	#name : #AboutValues,
-	#superclass : #Object,
-	#category : #Values
+	#name : 'AboutValues',
+	#superclass : 'Object',
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #'Package properties' }
+{ #category : 'Package properties' }
 AboutValues >> notice [
 	^'The MIT License
 
@@ -41,7 +42,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.'
 ]
 
-{ #category : #'Package properties' }
+{ #category : 'Package properties' }
 AboutValues >> storeVersion [
 	^'3.0.0.3'
 ]

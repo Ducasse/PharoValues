@@ -10,17 +10,18 @@ Instance Variables
 
 "
 Class {
-	#name : #Emitter,
-	#superclass : #Object,
+	#name : 'Emitter',
+	#superclass : 'Object',
 	#instVars : [
 		'printer',
 		'stream',
 		'level'
 	],
-	#category : #Values
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Emitter class >> for: aPrinter [
 	| inst |
 	inst := self new.
@@ -28,7 +29,7 @@ Emitter class >> for: aPrinter [
 	^inst
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Emitter class >> for: aPrinter on: aWriteStream at: anInteger [
 	| inst |
 	inst := self new.
@@ -36,18 +37,18 @@ Emitter class >> for: aPrinter on: aWriteStream at: anInteger [
 	^inst
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emit: aString [
 	self stream nextPutAll: aString
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitArgument: aPrintargument [
 	self emit: aPrintargument name , ': '.
 	aPrintargument value sourceFor: self
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitArraySourceFor: anArray [
 	self inBracketsDo: [
 		anArray size > 4
@@ -56,12 +57,12 @@ Emitter >> emitArraySourceFor: anArray [
 			self emitSmallCollection: anArray]]
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitClass: aString [
 	self emit: aString
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitDictionarySourceFor: aDictionaryPrintvalue [
 	self inBracketsDo: [
 		aDictionaryPrintvalue arguments size > 4
@@ -71,7 +72,7 @@ Emitter >> emitDictionarySourceFor: aDictionaryPrintvalue [
 			self emitSmallDictionary: aDictionaryPrintvalue]]
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitEmpty: aValuePrintvalue [
 	"write the constructor for an empty instance"
 
@@ -79,7 +80,7 @@ Emitter >> emitEmpty: aValuePrintvalue [
 	self emit: ' new'
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitLongCollection: aSequenceableCollection [
 	self emit: '(', (OrderedCollection nameRelativeTo: self printer target) , ' new: ' , aSequenceableCollection size printString, ')'.
 	aSequenceableCollection do: [:value |
@@ -91,7 +92,7 @@ Emitter >> emitLongCollection: aSequenceableCollection [
 	self emit: 'yourself'
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitLongDictionary: aDictionaryPrintvalue [
 	self emit: '(', (aDictionaryPrintvalue targetClass nameRelativeTo: self printer target), ' new: ' , aDictionaryPrintvalue arguments size printString, ')'.
 	aDictionaryPrintvalue arguments do: [:argument |
@@ -105,12 +106,12 @@ Emitter >> emitLongDictionary: aDictionaryPrintvalue [
 	self emit: 'yourself'
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitSeparator [
 	self subclassResponsibility
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitSmallCollection: aSequenceableCollection [
 	self emit: (Array nameRelativeTo: self printer target).
 	aSequenceableCollection do: [:value |
@@ -119,7 +120,7 @@ Emitter >> emitSmallCollection: aSequenceableCollection [
 		value sourceFor: self]
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitSmallDictionary: aDictionaryPrintvalue [
 	self emit: (aDictionaryPrintvalue targetClass nameRelativeTo: self printer target).
 	aDictionaryPrintvalue arguments do: [:argument |
@@ -130,39 +131,39 @@ Emitter >> emitSmallDictionary: aDictionaryPrintvalue [
 		argument value sourceFor: self]
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> emitValue: aString [
 	self emit: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Emitter >> emitterClassFor: printvalue [
 	"<Emitter class>"
 
 	^self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Emitter >> emitterFor: printvalue [
 	"<Emitter>"
 
 	^(self emitterClassFor: printvalue) for: self printer on: self stream at: self level
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 Emitter >> inBracketsDo: aZeroArgumentBlock [
 	self stream nextPut: $(.
 	aZeroArgumentBlock ensure: [self stream nextPut: $)]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Emitter >> initializePrinter: aPrinter stream: aWriteStream level: anInteger [
 	printer := aPrinter.
 	stream := aWriteStream.
 	level := anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Emitter >> level [
 	"<Integer>
 	the indent level"
@@ -170,14 +171,14 @@ Emitter >> level [
 	^level ifNil: [0]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Emitter >> printer [
 	"<ValuePrinter>"
 
 	^printer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Emitter >> stream [
 	"<WriteStream | TextStream>
 	the output stream"
@@ -185,7 +186,7 @@ Emitter >> stream [
 	^stream ifNil: [stream := self streamClass on: (String new: 100)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Emitter >> streamClass [
 	"<WriteStream class | TextStream class>"
 

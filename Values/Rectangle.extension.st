@@ -1,6 +1,6 @@
-Extension { #name : #Rectangle }
+Extension { #name : 'Rectangle' }
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Rectangle >> printValueWith: printer [
 	| wst |
 	wst := WriteStream on: (String new: 25).

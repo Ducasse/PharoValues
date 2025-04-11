@@ -2,57 +2,58 @@
 VisualWorks class
 "
 Class {
-	#name : #ColorValue,
-	#superclass : #Color,
-	#category : #Values
+	#name : 'ColorValue',
+	#superclass : 'Color',
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> black [
 	^super black asColorValue
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> blue [
 	^super blue asColorValue
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> cyan [
 	^super cyan asColorValue
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 ColorValue class >> fromByte: anInteger [
 	^self fromBytes: (ByteArray new: 3 withAll: anInteger)
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 ColorValue class >> fromBytes: threeBytes [
 	^self fromBytesRed: threeBytes first green: (threeBytes at: 2) blue: threeBytes last
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 ColorValue class >> fromBytesRed: redByte green: greenByte blue: blueByte [
 	^self red: redByte / 255 green: greenByte / 255 blue: blueByte / 255
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 ColorValue class >> fromColor: aColor [
 	^self r: aColor red g: aColor green b: aColor blue
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> green [
 	^super green asColorValue
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> magenta [
 	^super magenta asColorValue
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> namedValueNames [
 	"The selection is the common set of color names with identical colors in VW and Squeak/Pharo
 	The colors are all variations of min and max of the 3 components"
@@ -63,27 +64,27 @@ ColorValue class >> namedValueNames [
 	#cyan #magenta #yellow)
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> red [
 	^super red asColorValue
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 ColorValue class >> red: r green: g blue: b [
 	^self r: r g: g b: b
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> white [
 	^super white asColorValue
 ]
 
-{ #category : #'*Values-named values' }
+{ #category : '*Values-named values' }
 ColorValue class >> yellow [
 	^super yellow asColorValue
 ]
 
-{ #category : #'*Values-converting' }
+{ #category : '*Values-converting' }
 ColorValue >> asByteArray [
 	^ByteArray
 		with: (self red * 255) truncated
@@ -91,12 +92,12 @@ ColorValue >> asByteArray [
 		with: (self blue * 255) truncated
 ]
 
-{ #category : #'*Values-converting' }
+{ #category : '*Values-converting' }
 ColorValue >> asColorValue [
 	^self
 ]
 
-{ #category : #'*Values-converting' }
+{ #category : '*Values-converting' }
 ColorValue >> asGrayValue [
 	"<Number>
 	between 0.0 (Black) and 1.0 (White) suitable for PDF DeviceGray"
@@ -104,7 +105,7 @@ ColorValue >> asGrayValue [
 	^self brightness
 ]
 
-{ #category : #'*Values-accessing' }
+{ #category : '*Values-accessing' }
 ColorValue >> cyan [
 	"<Number[0..1]>
 	the cyan part of the receiver"
@@ -112,14 +113,14 @@ ColorValue >> cyan [
 	^1.0 - self red
 ]
 
-{ #category : #'*Values-testing' }
+{ #category : '*Values-testing' }
 ColorValue >> isEmpty [
 	^self scaledRed isNil and: [
 	self scaledGreen isNil and: [
 	self scaledBlue isNil]]
 ]
 
-{ #category : #'*Values-accessing' }
+{ #category : '*Values-accessing' }
 ColorValue >> magenta [
 	"<Number[0..1]>
 	the magenta part of the receiver"
@@ -127,7 +128,7 @@ ColorValue >> magenta [
 	^1.0 - self green
 ]
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 ColorValue >> printValueWith: printer [
 	| args |
 	(self class nameOrNilFor: self) ifNotNil: [:symbol |
@@ -139,7 +140,7 @@ ColorValue >> printValueWith: printer [
 	^printer printvalue: self arguments: args
 ]
 
-{ #category : #'*Values-converting' }
+{ #category : '*Values-converting' }
 ColorValue >> rgbIndex [
 	"<Integer>
 	Three 8 bit RGB numbers interpreted as number for ordering"
@@ -147,7 +148,7 @@ ColorValue >> rgbIndex [
 	^self asByteArray inject: 0 into: [:num :byte | (num bitShift: 8) + byte]
 ]
 
-{ #category : #'*Values-accessing' }
+{ #category : '*Values-accessing' }
 ColorValue >> yellow [
 	"<Number[0..1]>
 	the yellow part of the receiver"

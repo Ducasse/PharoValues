@@ -2,12 +2,13 @@
 Tests for the source strings of Values
 "
 Class {
-	#name : #ValuePrinterTests,
-	#superclass : #TestCase,
-	#category : #'Values-Tests'
+	#name : 'ValuePrinterTests',
+	#superclass : 'TestCase',
+	#category : 'Values-Tests',
+	#package : 'Values-Tests'
 }
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testArray [
 
 	self assert: Array new asSource equals: '#()'.
@@ -50,7 +51,7 @@ ValuePrinterTests >> testArray [
 	with: ColorValue red)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testArraySource [
 	self assert: (Testvalue
 		constant: #constantSymbol
@@ -67,19 +68,19 @@ ValuePrinterTests >> testArraySource [
 		with: #key -> ''string''))'.
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testColorValue [
 	self assert: ColorValue red asSource equals: 'ColorValue red'.
 	self assert: (ColorValue fromBytesRed: 255 green: 0 blue: 0) asSource equals: 'ColorValue red'.
 	self assert: (ColorValue fromBytesRed: 255 green: 0 blue: 10) asSource equals: '(ColorValue fromBytesRed: 255 green: 0 blue: 10)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testDate [
 	self assert: (Date d: 7 m: 7 y: 2007) asSource = '(Date d: 7 m: 7 y: 2007)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testDictionary [
 	| dict |
 	self assert: Valuemap new asSource = 'Valuemap new'.
@@ -91,7 +92,7 @@ ValuePrinterTests >> testDictionary [
 	with: #b -> $x)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testDictionarySource [
 	self assert: (Testvalue
 		constant: #constantSymbol
@@ -109,7 +110,7 @@ ValuePrinterTests >> testDictionarySource [
 	self assert: (Testvalue constant: #Haider) asSource = '(Testvalue constant: #Haider)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testDictionaryWithValues [
 	| dict |
 	dict := Valuemap
@@ -132,12 +133,12 @@ ValuePrinterTests >> testDictionaryWithValues [
 			with: #key -> ''string'')) -> $x)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testLiteralArrays [
 	self assert: #(1 2 10 20 100) asSource = '#(1 2 10 20 100)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testLongDictionary [
 	| dict |
 	dict := Valuemap new.
@@ -157,7 +158,7 @@ ValuePrinterTests >> testLongDictionary [
 	yourself)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testNumbers [
 	self assert: 42 asSource = '42'.
 	self assert: 429999999939333 asSource = '429999999939333'.
@@ -172,7 +173,7 @@ ValuePrinterTests >> testNumbers [
 	"
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testOptionalConstantSource [
 	self assert: (Testvalue
 		constant: #constantSymbol
@@ -195,13 +196,13 @@ ValuePrinterTests >> testOptionalConstantSource [
 	self assert: (Testvalue constant: #constantSymbol) asSource = '(Testvalue constant: #constantSymbol)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testPoint [
 	self assert: (1 @ 2) asSource = '1 @ 2'.
 	self assert: (1 @ (Date d: 7 m: 7 y: 2007)) asSource = '1 @ (Date d: 7 m: 7 y: 2007)'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testTime [
 	self assert: (Time h: 7 m: 27 s: 13) asSource = '(Time h: 7 m: 27 s: 13)'.
 	self assert: (Time h: 7 m: 27 s: 0) asSource = '(Time h: 7 m: 27)'.
@@ -213,7 +214,7 @@ ValuePrinterTests >> testTime [
 	self assert: Time zero asSource = 'Time zero'
 ]
 
-{ #category : #Testing }
+{ #category : 'Testing' }
 ValuePrinterTests >> testTimestamp [
 	self assert: (Timestamp d: 15 m: 7 y: 2007 h: 7 m: 27 s: 13) asSource = '(Timestamp d: 15 m: 7 y: 2007 h: 7 m: 27 s: 13)'.
 	self assert: (Timestamp d: 15 m: 7 y: 2007 h: 7 m: 27 s: 0) asSource = '(Timestamp d: 15 m: 7 y: 2007 h: 7 m: 27)'.

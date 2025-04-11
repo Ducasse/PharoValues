@@ -1,13 +1,16 @@
 "
-VisualWorks class
+A Valuemap is an ordered dictionary preserving the order in which entries are added.
+Instances are also used as ordered volatile dictionary, not just as value.
+
 "
 Class {
-	#name : #Valuemap,
-	#superclass : #OrderedDictionary,
-	#category : #Values
+	#name : 'Valuemap',
+	#superclass : 'OrderedDictionary',
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Valuemap >> = otherOrderedDictionary [
 	^self class == otherOrderedDictionary class and: [
 	self size = otherOrderedDictionary size and: [
@@ -15,7 +18,16 @@ Valuemap >> = otherOrderedDictionary [
 		(self atIndex: i) = (otherOrderedDictionary atIndex: i)]]]
 ]
 
-{ #category : #copying }
+{ #category : 'printing' }
+Valuemap >> atIndex: index [
+	"Returns an Association"
+	self flag: #todo. 
+	"the name of the method is misleading. A good one is associationAtIndex:"
+	
+	^self associationAt: (self keyAtIndex: index)
+]
+
+{ #category : 'copying' }
 Valuemap >> copyWithAll: aDictionary [
 	"Answer a copy of the receiver with all associations from aDictionary added"
 
@@ -25,7 +37,14 @@ Valuemap >> copyWithAll: aDictionary [
 	^copy
 ]
 
-{ #category : #comparing }
+{ #category : 'printing' }
+Valuemap >> first [
+	"<Association>"
+
+	^self associationAt: self keys first
+]
+
+{ #category : 'comparing' }
 Valuemap >> hash [
 	^(1 to: self size) inject: self class hash into: [:hash :index |
 		| assoc |
@@ -33,19 +52,29 @@ Valuemap >> hash [
 		hash bitXor: (assoc key hash bitXor: assoc value hash)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Valuemap >> indexOf: aKey [
-	"<Integer>"
 
 	^self keys indexOf: aKey
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Valuemap >> keysForPrinting [
 	^self keys
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Valuemap >> printValueWith: printer [
 	^DictionaryPrintvalue arguments: (self printargumentsWith: printer) isOrdered: true
+]
+
+{ #category : 'printing' }
+Valuemap >> printargumentsWith: printer [
+	| args |
+	args := OrderedCollection new.
+	self keysForPrinting do: [:key |
+		args add: (DictionaryPrintargument
+			name: (key printValueWith: printer)
+			value: ((self at: key) printValueWith: printer))].
+	^args
 ]

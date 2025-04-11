@@ -1,6 +1,6 @@
-Extension { #name : #SequenceableCollection }
+Extension { #name : 'SequenceableCollection' }
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 SequenceableCollection >> printValueWith: printer [
 	self isLiteral ifTrue: [
 		^LiteralPrintvalue string: self storeString].

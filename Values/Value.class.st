@@ -9,15 +9,16 @@ Subclasses must implement the following messages:
 		localSpecification
 "
 Class {
-	#name : #Value,
-	#superclass : #Object,
+	#name : 'Value',
+	#superclass : 'Object',
 	#classVars : [
 		'NamedValuesRegistry'
 	],
-	#category : #Values
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #'named values' }
+{ #category : 'named values' }
 Value class >> namedValuesAt: aClass [
 	"<Dictionary key: Value value: Symbol>
 	the named instances of aClass"
@@ -25,7 +26,7 @@ Value class >> namedValuesAt: aClass [
 	^self namedValuesRegistry at: aClass ifAbsent: [Dictionary new]
 ]
 
-{ #category : #'named values' }
+{ #category : 'named values' }
 Value class >> namedValuesAt: aClass ifAbsentPut: aBlock [
 	"<Dictionary key: Value value: Symbol>
 	the named instances of aClass"
@@ -33,7 +34,7 @@ Value class >> namedValuesAt: aClass ifAbsentPut: aBlock [
 	^self namedValuesRegistry at: aClass ifAbsentPut: aBlock
 ]
 
-{ #category : #'named values' }
+{ #category : 'named values' }
 Value class >> namedValuesRegistry [
 	"<Dictionary key: Class value: (Dictionary key: Value value: Symbol)>
 	the named instances of classes.
@@ -42,13 +43,13 @@ Value class >> namedValuesRegistry [
 	^NamedValuesRegistry ifNil: [NamedValuesRegistry := Dictionary new]
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Value class >> obsolete [
 	self allInstancesDo: #beMutable.
 	super obsolete
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Value class >> primeRuntime [
 	"reset and load all class variables to fill the caches to avoid lazy initialization at runtime.
 	This should be executed when deploying after all application fonts and extensions are loaded"
@@ -58,14 +59,14 @@ Value class >> primeRuntime [
 	Object namesByValues
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Value class >> resetNamedValuesRegistry [
 	"self resetNamedValuesRegistry"
 
 	NamedValuesRegistry := nil
 ]
 
-{ #category : #pragmas }
+{ #category : 'pragmas' }
 Value class >> specificationPragmas [
 	<pragmas: #class>
 	^#(
@@ -83,24 +84,24 @@ Value class >> specificationPragmas [
 	)
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Value >> = anObject [
 	"all instvars must be equal"
 
 	^self isEqualValue: anObject
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Value >> hash [
 	^(1 to: self class instSize) inject: 0 into: [:hash :i | hash bitXor: (self instVarAt: i) hash]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Value >> isEmpty [
 	^self = self class new
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Value >> isEqualValue: anObject [
 	self == anObject ifTrue: [
 		^true].
@@ -112,30 +113,30 @@ Value >> isEqualValue: anObject [
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Value >> notEmpty [
 	^self isEmpty not
 ]
 
-{ #category : #marshaling }
+{ #category : 'marshaling' }
 Value >> passMode [
 	"for OpenTalk StSt (Smalltalk to Smalltalk)"
 
 	^#value
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 Value >> postCopy [
 	super postCopy.
 	self beImmutable
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Value >> printOn: stream [
 	stream nextPutAll: self asSource
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Value >> printValueWith: printer [
 	^printer printvalue: self arguments: #()
 ]

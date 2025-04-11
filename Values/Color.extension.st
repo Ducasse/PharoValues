@@ -1,6 +1,6 @@
-Extension { #name : #Color }
+Extension { #name : 'Color' }
 
-{ #category : #'*Values-converting' }
+{ #category : '*Values-converting' }
 Color >> asColorValue [
 	^ColorValue fromColor: self
 ]

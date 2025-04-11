@@ -8,21 +8,22 @@ Instance Variables:
 
 "
 Class {
-	#name : #ValuePrintvalue,
-	#superclass : #Printvalue,
+	#name : 'ValuePrintvalue',
+	#superclass : 'Printvalue',
 	#instVars : [
 		'classname',
 		'arguments'
 	],
-	#category : #Values
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 ValuePrintvalue class >> classname: classnameString [
 	^self classname: classnameString arguments: nil
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ValuePrintvalue class >> classname: classnameString arguments: argumentsArray [
 	| inst |
 	inst := self new.
@@ -30,27 +31,27 @@ ValuePrintvalue class >> classname: classnameString arguments: argumentsArray [
 	^inst
 ]
 
-{ #category : #specification }
+{ #category : 'specification' }
 ValuePrintvalue class >> localSpecification [
 	<constant: #classname class: #(#String)>
 	<sequence: #arguments>
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrintvalue >> arguments [
 	"<Array>"
 
 	^arguments ifNil: [#()]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrintvalue >> classname [
 	"<String>"
 
 	^classname
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ValuePrintvalue >> initializeClassname: classnameString arguments: argumentsArray [
 	classname := classnameString.
 	(argumentsArray notNil and: [
@@ -59,7 +60,7 @@ ValuePrintvalue >> initializeClassname: classnameString arguments: argumentsArra
 	self beImmutable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ValuePrintvalue >> isLine [
 	self arguments size = 1 ifTrue: [
 		^self arguments first value isLine].
@@ -67,7 +68,7 @@ ValuePrintvalue >> isLine [
 	self arguments allSatisfy: [:arg | arg isSimple]]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ValuePrintvalue >> printValueWith: printer [
 	| args |
 	args := OrderedCollection new.
@@ -76,7 +77,7 @@ ValuePrintvalue >> printValueWith: printer [
 	^printer printvalue: self arguments: args
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrintvalue >> sourceWith: emitter [
 	self arguments isEmpty ifTrue: [
 		^emitter emitEmpty: self].

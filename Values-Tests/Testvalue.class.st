@@ -2,18 +2,19 @@
 Testvalue is a resource class for testing values
 "
 Class {
-	#name : #Testvalue,
-	#superclass : #Value,
+	#name : 'Testvalue',
+	#superclass : 'Value',
 	#instVars : [
 		'constant',
 		'optional',
 		'array',
 		'dictionary'
 	],
-	#category : #'Values-Tests'
+	#category : 'Values-Tests',
+	#package : 'Values-Tests'
 }
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 Testvalue class >> constant: constantSymbol [
 	| inst |
 	inst := self new.
@@ -21,7 +22,7 @@ Testvalue class >> constant: constantSymbol [
 	^inst
 ]
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 Testvalue class >> constant: constantSymbol array: arrayArray [
 	| inst |
 	inst := self new.
@@ -29,7 +30,7 @@ Testvalue class >> constant: constantSymbol array: arrayArray [
 	^inst
 ]
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 Testvalue class >> constant: constantSymbol array: arrayArray dictionary: dictionaryDictionary [
 	| inst |
 	inst := self new.
@@ -41,7 +42,7 @@ Testvalue class >> constant: constantSymbol array: arrayArray dictionary: dictio
 	^inst
 ]
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 Testvalue class >> constant: constantSymbol dictionary: dictionaryDictionary [
 	| inst |
 	inst := self new.
@@ -53,7 +54,7 @@ Testvalue class >> constant: constantSymbol dictionary: dictionaryDictionary [
 	^inst
 ]
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 Testvalue class >> constant: constantSymbol optional: optionalSymbol [
 	| inst |
 	inst := self new.
@@ -61,7 +62,7 @@ Testvalue class >> constant: constantSymbol optional: optionalSymbol [
 	^inst
 ]
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 Testvalue class >> constant: constantSymbol optional: optionalSymbol array: arrayArray [
 	| inst |
 	inst := self new.
@@ -73,7 +74,7 @@ Testvalue class >> constant: constantSymbol optional: optionalSymbol array: arra
 	^inst
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Testvalue class >> constant: constantSymbol optional: optionalSymbol array: arrayArray dictionary: dictionaryDictionary [
 	| inst |
 	inst := self new.
@@ -85,7 +86,7 @@ Testvalue class >> constant: constantSymbol optional: optionalSymbol array: arra
 	^inst
 ]
 
-{ #category : #'instance creation optional' }
+{ #category : 'instance creation optional' }
 Testvalue class >> constant: constantSymbol optional: optionalSymbol dictionary: dictionaryDictionary [
 	| inst |
 	inst := self new.
@@ -97,7 +98,7 @@ Testvalue class >> constant: constantSymbol optional: optionalSymbol dictionary:
 	^inst
 ]
 
-{ #category : #'test instances' }
+{ #category : 'test instances' }
 Testvalue class >> example [
 	^Testvalue
 		constant: #constantSymbol
@@ -108,7 +109,7 @@ Testvalue class >> example [
 			with: #key -> 'string')
 ]
 
-{ #category : #specification }
+{ #category : 'specification' }
 Testvalue class >> localSpecification [
 	<constant: #constant class: #(#Symbol)>
 	<optional: #optional class: #(#Symbol) default: '#none'>
@@ -116,28 +117,28 @@ Testvalue class >> localSpecification [
 	<map: #dictionary>
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Testvalue >> array [
 	"<Array>"
 
 	^array ifNil: [#()]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Testvalue >> constant [
 	"<Symbol>"
 
 	^constant
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Testvalue >> dictionary [
 	"<Dictionary>"
 
 	^dictionary ifNil: [Dictionary new beImmutable]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Testvalue >> initializeConstant: constantSymbol optional: optionalSymbol array: arrayArray dictionary: dictionaryDictionary [
 	constant := constantSymbol.
 	(optionalSymbol notNil and: [
@@ -152,14 +153,14 @@ Testvalue >> initializeConstant: constantSymbol optional: optionalSymbol array: 
 	self beImmutable
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Testvalue >> optional [
 	"<Symbol>"
 
 	^optional ifNil: [#none]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Testvalue >> printValueWith: printer [
 	| args |
 	args := OrderedCollection new.

@@ -10,15 +10,16 @@ Instance Variables:
 
 "
 Class {
-	#name : #ValuePrinter,
-	#superclass : #Object,
+	#name : 'ValuePrinter',
+	#superclass : 'Object',
 	#instVars : [
 		'target'
 	],
-	#category : #Values
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ValuePrinter class >> newFor: targetClass [
 	| inst |
 	inst := self new.
@@ -26,7 +27,7 @@ ValuePrinter class >> newFor: targetClass [
 	^inst
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrinter >> array: selectorname value: object [
 	"<Printargument | nil>"
 
@@ -35,19 +36,19 @@ ValuePrinter >> array: selectorname value: object [
 	^Printargument name: selectorname value: (object printValueWith: self)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrinter >> classnameOf: value [
 	^value class nameRelativeTo: self target
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrinter >> constant: selectorname value: object [
 	"<Printargument>"
 
 	^Printargument name: selectorname value: (object printValueWith: self)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrinter >> dictionary: selectorname value: object [
 	"<Printargument | nil>"
 
@@ -56,12 +57,12 @@ ValuePrinter >> dictionary: selectorname value: object [
 	^Printargument name: selectorname value: (object printValueWith: self)
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ValuePrinter >> initializeTarget: targetClass [
 	target := targetClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrinter >> optional: selectorname value: object [
 	"<Printargument | nil>"
 
@@ -69,7 +70,7 @@ ValuePrinter >> optional: selectorname value: object [
 		Printargument name: selectorname value: (object printValueWith: self)]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrinter >> printvalue: aValue arguments: arguments [
 	aValue class new = aValue ifTrue: [
 		^ValuePrintvalue classname: (self classnameOf: aValue)].
@@ -79,7 +80,7 @@ ValuePrinter >> printvalue: aValue arguments: arguments [
 			arg notNil])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ValuePrinter >> target [
 	"<Value class>
 	the class for which the object is printed.

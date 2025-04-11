@@ -1,11 +1,11 @@
-Extension { #name : #Date }
+Extension { #name : 'Date' }
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 Date class >> d: dayInteger m: monthInteger y: yearInteger [
 	^self year: yearInteger month: monthInteger day: dayInteger
 ]
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Date >> printValueWith: printer [
 	| wst |
 	wst := WriteStream on: (String new: 25).

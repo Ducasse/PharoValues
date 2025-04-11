@@ -1,21 +1,21 @@
-Extension { #name : #Time }
+Extension { #name : 'Time' }
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 Time class >> h: hoursInteger [
 	^self h: hoursInteger m: 0 s: 0
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 Time class >> h: hoursInteger m: minutesInteger [
 	^self h: hoursInteger m: minutesInteger s: 0
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 Time class >> h: hoursInteger m: minutesInteger s: secondsInteger [
 	^self hour: hoursInteger minute: minutesInteger second: secondsInteger
 ]
 
-{ #category : #'*Values-printing' }
+{ #category : '*Values-printing' }
 Time >> printValueWith: printer [
 	| wst |
 	wst := WriteStream on: (String new: 25).
@@ -48,7 +48,7 @@ Time >> printValueWith: printer [
 	^LiteralPrintvalue string: wst contents
 ]
 
-{ #category : #'*Values-instance creation' }
+{ #category : '*Values-instance creation' }
 Time class >> zero [
 	^self h: 0
 ]

@@ -7,22 +7,23 @@ A Printargument holds the data to print one instance variable (constant) and its
 With Printvalue it represents the source for a Value
 "
 Class {
-	#name : #Printargument,
-	#superclass : #Value,
+	#name : 'Printargument',
+	#superclass : 'Value',
 	#instVars : [
 		'name',
 		'value'
 	],
-	#category : #Values
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #specification }
+{ #category : 'specification' }
 Printargument class >> localSpecification [
 	<constant: #name class: #(#String)>
 	<constant: #value class: #(#Printvalue)>
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Printargument class >> name: nameString value: valuePrintvalue [
 	| inst |
 	inst := self new.
@@ -30,26 +31,26 @@ Printargument class >> name: nameString value: valuePrintvalue [
 	^inst
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Printargument >> initializeName: nameString value: valuePrintvalue [
 	name := nameString.
 	value := valuePrintvalue.
 	self beImmutable
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Printargument >> isSimple [
 	^self value isSimple
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printargument >> name [
 	"<String>"
 
 	^name
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Printargument >> printValueWith: printer [
 	| args |
 	args := OrderedCollection new.
@@ -58,12 +59,12 @@ Printargument >> printValueWith: printer [
 	^printer printvalue: self arguments: args
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printargument >> sourceWith: emitter [
 	emitter emitArgument: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Printargument >> value [
 	"<Printvalue>"
 

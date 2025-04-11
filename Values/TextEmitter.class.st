@@ -2,39 +2,40 @@
 TextEmitter outputs a descriptive text.
 "
 Class {
-	#name : #TextEmitter,
-	#superclass : #Emitter,
-	#category : #Values
+	#name : 'TextEmitter',
+	#superclass : 'Emitter',
+	#category : 'Values',
+	#package : 'Values'
 }
 
-{ #category : #writing }
+{ #category : 'writing' }
 TextEmitter >> emitArraySourceFor: anArray [
 	self emitSmallCollection: anArray
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 TextEmitter >> emitBold: aString [
 	self stream nextPutAllText: aString asText allBold
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 TextEmitter >> emitClass: aString [
 	self emitBold: aString
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 TextEmitter >> emitDictionarySourceFor: aDictionaryPrintvalue [
 	self emitSmallDictionary: aDictionaryPrintvalue
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 TextEmitter >> emitSmallCollection: aSequenceableCollection [
 	aSequenceableCollection do: [:value |
 		self emitSeparator.
 		value sourceFor: self]
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 TextEmitter >> emitSmallDictionary: aDictionaryPrintvalue [
 	aDictionaryPrintvalue arguments do: [:argument |
 		self emitSeparator.
@@ -43,19 +44,19 @@ TextEmitter >> emitSmallDictionary: aDictionaryPrintvalue [
 		argument value sourceFor: self]
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 TextEmitter >> emitValue: aString [
 	self emitBold: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TextEmitter >> emitterClassFor: printvalue [
 	^printvalue isLine
 		ifTrue: [TextLineemitter]
 		ifFalse: [TextBlockemitter]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TextEmitter >> streamClass [
 	^TextStream
 ]
