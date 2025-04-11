@@ -11,8 +11,9 @@ Class {
 		'arguments',
 		'isOrdered'
 	],
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Core',
+	#package : 'Values',
+	#tag : 'Core'
 }
 
 { #category : 'instance creation optional' }

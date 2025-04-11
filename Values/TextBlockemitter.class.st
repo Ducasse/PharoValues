@@ -4,8 +4,9 @@ TextBlockEmitter emits text as indented block
 Class {
 	#name : 'TextBlockemitter',
 	#superclass : 'TextEmitter',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Emitter',
+	#package : 'Values',
+	#tag : 'Emitter'
 }
 
 { #category : 'writing' }

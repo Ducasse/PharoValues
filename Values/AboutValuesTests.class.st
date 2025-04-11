@@ -8,9 +8,9 @@ Includes conformance tests for all leaf classes of Value.
 Class {
 	#name : 'AboutValuesTests',
 	#superclass : 'Object',
-	#category : 'Values-Testing',
+	#category : 'Values-About',
 	#package : 'Values',
-	#tag : 'Testing'
+	#tag : 'About'
 }
 
 { #category : 'Package properties' }

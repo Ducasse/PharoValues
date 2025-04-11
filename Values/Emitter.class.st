@@ -17,8 +17,9 @@ Class {
 		'stream',
 		'level'
 	],
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Emitter',
+	#package : 'Values',
+	#tag : 'Emitter'
 }
 
 { #category : 'instance creation' }

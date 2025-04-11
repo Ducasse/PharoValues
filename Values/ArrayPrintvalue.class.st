@@ -7,8 +7,9 @@ Class {
 	#instVars : [
 		'arguments'
 	],
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Core',
+	#package : 'Values',
+	#tag : 'Core'
 }
 
 { #category : 'instance creation' }

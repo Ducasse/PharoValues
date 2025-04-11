@@ -4,8 +4,9 @@ Emits source as indented block
 Class {
 	#name : 'Blockemitter',
 	#superclass : 'SourceEmitter',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Emitter',
+	#package : 'Values',
+	#tag : 'Emitter'
 }
 
 { #category : 'writing' }

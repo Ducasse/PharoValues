@@ -15,12 +15,14 @@ Class {
 	#instVars : [
 		'target'
 	],
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Core',
+	#package : 'Values',
+	#tag : 'Core'
 }
 
 { #category : 'instance creation' }
 ValuePrinter class >> newFor: targetClass [
+
 	| inst |
 	inst := self new.
 	inst initializeTarget: targetClass.

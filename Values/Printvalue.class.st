@@ -9,8 +9,9 @@ Printvalues are created when printing the source for a Value in the first pass. 
 Class {
 	#name : 'Printvalue',
 	#superclass : 'Value',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Core',
+	#package : 'Values',
+	#tag : 'Core'
 }
 
 { #category : 'accessing' }

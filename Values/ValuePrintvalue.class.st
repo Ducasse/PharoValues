@@ -14,8 +14,9 @@ Class {
 		'classname',
 		'arguments'
 	],
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Core',
+	#package : 'Values',
+	#tag : 'Core'
 }
 
 { #category : 'instance creation optional' }

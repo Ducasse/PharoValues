@@ -4,8 +4,9 @@ Emits source as one line
 Class {
 	#name : 'Lineemitter',
 	#superclass : 'SourceEmitter',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Emitter',
+	#package : 'Values',
+	#tag : 'Emitter'
 }
 
 { #category : 'writing' }

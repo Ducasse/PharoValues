@@ -4,8 +4,9 @@ SourceEmitter outputs source code.
 Class {
 	#name : 'SourceEmitter',
 	#superclass : 'Emitter',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Emitter',
+	#package : 'Values',
+	#tag : 'Emitter'
 }
 
 { #category : 'accessing' }

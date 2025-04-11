@@ -5,8 +5,9 @@ Both key and value can be Values
 Class {
 	#name : 'DictionaryPrintargument',
 	#superclass : 'Printargument',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Core',
+	#package : 'Values',
+	#tag : 'Core'
 }
 
 { #category : 'specification' }

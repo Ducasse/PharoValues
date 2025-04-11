@@ -100,6 +100,7 @@ Testvalue class >> constant: constantSymbol optional: optionalSymbol dictionary:
 
 { #category : 'test instances' }
 Testvalue class >> example [
+	<smapleInstance>
 	^Testvalue
 		constant: #constantSymbol
 		optional: #optionalSymbol
@@ -139,7 +140,12 @@ Testvalue >> dictionary [
 ]
 
 { #category : 'initialize-release' }
-Testvalue >> initializeConstant: constantSymbol optional: optionalSymbol array: arrayArray dictionary: dictionaryDictionary [
+Testvalue >> initializeConstant: constantSymbol 
+	optional: optionalSymbol 
+	array: arrayArray 
+	dictionary: dictionaryDictionary [
+
+
 	constant := constantSymbol.
 	(optionalSymbol notNil and: [
 	self optional ~= optionalSymbol]) ifTrue: [
@@ -162,6 +168,7 @@ Testvalue >> optional [
 
 { #category : 'printing' }
 Testvalue >> printValueWith: printer [
+
 	| args |
 	args := OrderedCollection new.
 	args add: (printer constant: 'constant' value: self constant).

@@ -13,8 +13,9 @@ Specifies the responsibilities of subclasses to define the #localSpecification
 Class {
 	#name : 'AboutValues',
 	#superclass : 'Object',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-About',
+	#package : 'Values',
+	#tag : 'About'
 }
 
 { #category : 'Package properties' }

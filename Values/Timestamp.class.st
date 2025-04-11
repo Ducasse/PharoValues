@@ -4,26 +4,27 @@ VisualWorks class
 Class {
 	#name : 'Timestamp',
 	#superclass : 'DateAndTime',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Emitter',
+	#package : 'Values',
+	#tag : 'Emitter'
 }
 
-{ #category : '*Values-instance creation' }
+{ #category : 'instance creation' }
 Timestamp class >> d: dayInteger m: monthInteger y: yearInteger [
 	^self d: dayInteger m: monthInteger y: yearInteger h: 0 m: 0 s: 0
 ]
 
-{ #category : '*Values-instance creation' }
+{ #category : 'instance creation' }
 Timestamp class >> d: dayInteger m: monthInteger y: yearInteger h: hoursInteger [
 	^self d: dayInteger m: monthInteger y: yearInteger h: hoursInteger m: 0 s: 0
 ]
 
-{ #category : '*Values-instance creation' }
+{ #category : 'instance creation' }
 Timestamp class >> d: dayInteger m: monthInteger y: yearInteger h: hoursInteger m: minutesInteger [
 	^self d: dayInteger m: monthInteger y: yearInteger h: hoursInteger m: minutesInteger s: 0
 ]
 
-{ #category : '*Values-instance creation' }
+{ #category : 'instance creation' }
 Timestamp class >> d: dayInteger m: monthInteger y: yearInteger h: hoursInteger m: minutesInteger s: secondsInteger [
 	^self
 		year: yearInteger
@@ -34,7 +35,7 @@ Timestamp class >> d: dayInteger m: monthInteger y: yearInteger h: hoursInteger 
 		second: secondsInteger
 ]
 
-{ #category : '*Values-printing' }
+{ #category : 'printing' }
 Timestamp >> printValueWith: printer [
 	| wst |
 	wst := WriteStream on: (String new: 50).

@@ -4,8 +4,9 @@ TextEmitter outputs a descriptive text.
 Class {
 	#name : 'TextEmitter',
 	#superclass : 'Emitter',
-	#category : 'Values',
-	#package : 'Values'
+	#category : 'Values-Emitter',
+	#package : 'Values',
+	#tag : 'Emitter'
 }
 
 { #category : 'writing' }
